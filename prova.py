@@ -63,11 +63,6 @@ def depositar(valor_depositado, saldo):
   print(f"Depósito de R${valor_depositado:.2f} feito com sucesso!")
   return novoSaldo
 
-saldo = 0
-deposito = float(input("Digite o valor do depósito: "))
-saldo = depositar(deposito, saldo)
-print(f"Seu novo saldo é R${saldo:.2f}")
-
 def saque(valorSaque, saldo):
   if valorSaque > saldo:
     print("Saldo indisponível")
@@ -80,6 +75,29 @@ def saque(valorSaque, saldo):
     print(f"Saque de R${valorSaque:.2f} Efetuado com sucesso!")
     return novoSaldo
 
-valorSaque = float(input("Digite o valor de saque que deseja: "))
-saldo = saque(valorSaque, saldo)
-print(f"Novo saldo= R${saldo:.2f}")
+
+saldo = 0
+while True:
+  print("===Caixa Eletrônico===")
+  print("1 - Depositar Dinheiro ")
+  print("2 - Sacar Dinheiro ")
+  print("3 - Ver Saldo ")
+  print("4 - Encerrar o Programa ")
+
+  opcao = input("Escolha uma opção: ")
+
+  if opcao == "1":
+    deposito = float(input("Digite o valor do depósito: "))
+    saldo = depositar(deposito, saldo)
+    print(f"Seu saldo é de: R${saldo:.2f}")
+  elif opcao == "2":
+    valorSaque = float(input("Digite o valor de saque que deseja: "))
+    saldo = saque(valorSaque, saldo)
+    print(f"Seu saldo é de: R${saldo:.2f}")
+  elif opcao == "3":
+    print(f"Seu saldo é de: R${saldo:.2f}")
+  elif opcao == "4":
+    print("Encerrando programa...")
+    break
+  else:
+    print("Opção inválida, tente novamente.")
